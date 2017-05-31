@@ -4,6 +4,8 @@ Embedding and captioning new images
 import os
 import cPickle as pkl
 import numpy
+
+from skimage import io
 import skimage.transform
 
 import lasagne
@@ -142,8 +144,9 @@ def load_image(file_name):
     Load and preprocess an image
     """
     MEAN_VALUE = numpy.array([103.939, 116.779, 123.68]).reshape((3,1,1))
-    image = Image.open(file_name)
-    im = numpy.array(image)
+    im = io.imread(file_name)
+    # image = Image.open(file_name)
+    # im = numpy.array(image)
 
     # Resize so smallest dim = 256, preserving aspect ratio
     if len(im.shape) == 2:
