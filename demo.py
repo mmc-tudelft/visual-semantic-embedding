@@ -10,7 +10,8 @@ import skimage.transform
 
 import lasagne
 from lasagne.layers import InputLayer, DenseLayer, NonlinearityLayer
-from lasagne.layers.corrmm import Conv2DMMLayer as ConvLayer
+from lasagne.layers import Conv2DLayer as ConvLayer
+# from lasagne.layers.corrmm import Conv2DMMLayer as ConvLayer
 from lasagne.layers import MaxPool2DLayer as PoolLayer
 from lasagne.nonlinearities import softmax
 from lasagne.utils import floatX
