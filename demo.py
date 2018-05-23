@@ -181,7 +181,7 @@ def compute_features(net, im):
     fc7 = numpy.array(lasagne.layers.get_output(net['fc7'], im, deterministic=True).eval())
     return fc7
 
-def build_convnet():
+def build_convnet(vgg_fn):
     """
     Construct VGG-19 convnet
     """
@@ -216,7 +216,7 @@ def build_convnet():
 
     print 'Loading parameters...'
     output_layer = net['prob']
-    model = pkl.load(open(path_to_vgg))
+    model = pkl.load(open(vgg_fn))
     lasagne.layers.set_all_param_values(output_layer, model['param values'])
 
     return net
